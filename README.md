@@ -1,0 +1,2 @@
+# Inventarios.com.mx
+Proyecto
