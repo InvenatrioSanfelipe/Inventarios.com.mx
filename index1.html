@@ -9,6 +9,7 @@
   * {
     box-sizing: border-box;
   }
+
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -73,7 +74,8 @@
     padding: 25px 30px;
     border-radius: 12px;
     box-shadow: 0 6px 15px rgba(0,123,255,0.15);
-    min-height: 400px;
+    height: auto;
+    transition: height 0.3s ease-in-out, padding 0.3s ease-in-out;
   }
 
   /* Estilo básico para títulos y texto */
@@ -99,6 +101,10 @@
       padding: 10px 16px;
       font-size: 0.9rem;
     }
+
+    #content {
+      padding: 15px 20px;
+    }
   }
 
   @media (max-width: 400px) {
@@ -107,6 +113,13 @@
       padding: 8px 12px;
       font-size: 0.85rem;
     }
+  }
+
+  .error-msg {
+    color: red;
+    text-align: center;
+    font-weight: bold;
+    padding: 20px;
   }
 </style>
 </head>
@@ -139,6 +152,7 @@
       })
       .then(html => {
         contentDiv.innerHTML = html;
+        contentDiv.scrollIntoView({ behavior: 'smooth' });
       })
       .catch(err => {
         contentDiv.innerHTML = `<div class="error-msg">No se pudo cargar el apartado. Intenta de nuevo.</div>`;
@@ -146,7 +160,6 @@
       });
   }
 </script>
-
 
 </body>
 </html>
